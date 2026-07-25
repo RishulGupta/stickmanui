@@ -2,10 +2,11 @@ import { useState } from 'react';
 import { Sparkles } from 'lucide-react';
 import { NeonGlassHead } from './components/NeonGlassHead';
 import ShoulderStudy from './components/ShoulderStudy';
+import UpperBody from './components/upperbody';
 import { cn } from './lib/utils';
 
 export function App() {
-  const [activeTab, setActiveTab] = useState<'head' | 'shoulder'>('head');
+  const [activeTab, setActiveTab] = useState<'head' | 'shoulder' | 'upperbody'>('head');
 
   return (
     <main
@@ -42,18 +43,31 @@ export function App() {
         >
           Shoulder Study
         </button>
+        <button
+          onClick={() => setActiveTab('upperbody')}
+          className={cn(
+            'px-4 py-2 text-sm font-medium transition-all rounded-md cursor-pointer',
+            activeTab === 'upperbody'
+              ? 'bg-purple-600 text-white shadow-lg shadow-purple-500/30'
+              : 'text-white/60 hover:text-white hover:bg-white/5'
+          )}
+        >
+          Upper Body
+        </button>
       </div>
 
       <div className="flex items-center justify-center">
         {activeTab === 'head' ? (
           <NeonGlassHead className="h-[420px] w-[420px]" />
-        ) : (
+        ) : activeTab === 'shoulder' ? (
           <div className="flex flex-col items-center gap-4">
             <h2 className="text-sm font-mono text-white/50 tracking-wider">SHOULDER STUDY GEOMETRY</h2>
             <div className="p-6 rounded-2xl bg-[#0d0b18] border border-white/10 shadow-2xl">
               <ShoulderStudy />
             </div>
           </div>
+        ) : (
+          <UpperBody />
         )}
       </div>
     </main>
