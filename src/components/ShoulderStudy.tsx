@@ -65,48 +65,21 @@ export default function ShoulderStudy() {
         filter="url(#shoulderGlow)"
       />
 
-      {/* Main Tube */}
+      {/* Glass Body */}
       <path
         d="
-          M176 92
-          C208 93 232 94 250 94
-          C268 94 292 93 324 92
+          M176 88
+          C208 89 232 90 250 90
+          C268 90 292 89 324 88
+          L324 96
+          C292 97 268 98 250 98
+          C232 98 208 97 176 96
+          Z
         "
-        fill="none"
-        stroke="url(#shoulderGradient)"
-        strokeWidth="6.5"
-        strokeLinecap="round"
+        fill="url(#shoulderGradient)"
       />
 
-      {/* Glass Volume */}
-      <path
-        d="
-          M176 92
-          C208 93 232 94 250 94
-          C268 94 292 93 324 92
-        "
-        fill="none"
-        stroke="#FFFFFF"
-        strokeWidth="5.5"
-        strokeLinecap="round"
-        opacity=".10"
-      />
-
-      {/* Lower Shadow */}
-      <path
-        d="
-          M176 93
-          C208 94 232 95 250 95
-          C268 95 292 94 324 93
-        "
-        fill="none"
-        stroke="#533F87"
-        strokeWidth="4.5"
-        strokeLinecap="round"
-        opacity=".28"
-      />
-
-      {/* Top Glass Reflection */}
+      {/* Top Glass Highlight */}
       <path
         d="
           M181 90
@@ -115,9 +88,21 @@ export default function ShoulderStudy() {
         "
         fill="none"
         stroke="#FFFFFF"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        opacity=".30"
+        strokeWidth="1"
+        opacity=".35"
+      />
+
+      {/* Lower Shadow */}
+      <path
+        d="
+          M181 96
+          C209 97 232 98 250 98
+          C268 98 291 97 319 96
+        "
+        fill="none"
+        stroke="#5D468F"
+        strokeWidth="1"
+        opacity=".35"
       />
     </svg>
   );
