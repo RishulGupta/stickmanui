@@ -1,109 +1,560 @@
 import React from "react";
 
+const WIDTH = 500;
+const HEIGHT = 180;
+
+const SHOULDER_X = 170;
+const SHOULDER_Y = 90;
+const SHOULDER_WIDTH = 160;
+const SHOULDER_HEIGHT = 12;
+const SHOULDER_RADIUS = SHOULDER_HEIGHT / 2;
+
 export default function ShoulderStudy() {
   return (
     <svg
-      width="500"
-      height="180"
-      viewBox="0 0 500 180"
+      width={WIDTH}
+      height={HEIGHT}
+      viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
+      xmlns="http://www.w3.org/2000/svg"
       style={{
-        background: "#0d0b18",
+        background: "#080812",
+        overflow: "visible",
       }}
     >
       <defs>
-        <filter id="shoulderGlow" x="-150%" y="-150%" width="400%" height="400%">
-          <feGaussianBlur stdDeviation="10" result="blur" />
-          <feMerge>
-            <feMergeNode in="blur" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
+
+        {/* ========================================================= */}
+        {/* MAIN BODY GRADIENT                                        */}
+        {/* ========================================================= */}
 
         <linearGradient
-          id="shoulderGradient"
-          x1="176"
-          y1="94"
-          x2="324"
-          y2="94"
-          gradientUnits="userSpaceOnUse"
+          id="glassBody"
+          x1="0%"
+          y1="50%"
+          x2="100%"
+          y2="50%"
         >
-          <stop offset="0%" stopColor="#A7FFFF" />
-          <stop offset="18%" stopColor="#F8FFFF" />
-          <stop offset="50%" stopColor="#FFFFFF" />
-          <stop offset="82%" stopColor="#FFE9FF" />
-          <stop offset="100%" stopColor="#E76BFF" />
+          <stop offset="0%" stopColor="#7efcff"/>
+          <stop offset="18%" stopColor="#eaffff"/>
+          <stop offset="38%" stopColor="#ffffff"/>
+          <stop offset="62%" stopColor="#ffffff"/>
+          <stop offset="84%" stopColor="#ffdfff"/>
+          <stop offset="100%" stopColor="#d46bff"/>
         </linearGradient>
+
+        {/* ========================================================= */}
+        {/* INNER GLASS VOLUME                                        */}
+        {/* ========================================================= */}
+
+        <linearGradient
+          id="glassVolume"
+          x1="0%"
+          y1="0%"
+          x2="0%"
+          y2="100%"
+        >
+          <stop offset="0%" stopColor="#ffffff" stopOpacity=".45"/>
+          <stop offset="18%" stopColor="#ffffff" stopOpacity=".18"/>
+          <stop offset="50%" stopColor="#ffffff" stopOpacity=".03"/>
+          <stop offset="80%" stopColor="#7350cc" stopOpacity=".08"/>
+          <stop offset="100%" stopColor="#28143d" stopOpacity=".35"/>
+        </linearGradient>
+
+        {/* ========================================================= */}
+        {/* TOP REFLECTION                                            */}
+        {/* ========================================================= */}
+
+        <linearGradient
+          id="topReflection"
+          x1="0%"
+          y1="0%"
+          x2="0%"
+          y2="100%"
+        >
+          <stop offset="0%" stopColor="#ffffff" stopOpacity=".90"/>
+          <stop offset="100%" stopColor="#ffffff" stopOpacity="0"/>
+        </linearGradient>
+
+        {/* ========================================================= */}
+        {/* LOWER SHADOW                                              */}
+        {/* ========================================================= */}
+
+        <linearGradient
+          id="bottomShadow"
+          x1="0%"
+          y1="0%"
+          x2="0%"
+          y2="100%"
+        >
+          <stop offset="0%" stopColor="#7c63cf" stopOpacity="0"/>
+          <stop offset="100%" stopColor="#201033" stopOpacity=".45"/>
+        </linearGradient>
+
+        {/* ========================================================= */}
+        {/* LEFT END CAP                                              */}
+        {/* ========================================================= */}
+
+        <radialGradient id="leftCap">
+          <stop offset="0%" stopColor="#ffffff"/>
+          <stop offset="35%" stopColor="#dfffff"/>
+          <stop offset="100%" stopColor="#7efcff"/>
+        </radialGradient>
+
+        {/* ========================================================= */}
+        {/* RIGHT END CAP                                             */}
+        {/* ========================================================= */}
+
+        <radialGradient id="rightCap">
+          <stop offset="0%" stopColor="#ffffff"/>
+          <stop offset="35%" stopColor="#ffeaff"/>
+          <stop offset="100%" stopColor="#d46bff"/>
+        </radialGradient>
+
+        {/* ========================================================= */}
+        {/* WHITE CORE                                                */}
+        {/* ========================================================= */}
+
+        <linearGradient
+          id="whiteCore"
+          x1="0%"
+          y1="50%"
+          x2="100%"
+          y2="50%"
+        >
+          <stop offset="0%" stopColor="#ffffff"/>
+          <stop offset="100%" stopColor="#ffffff"/>
+        </linearGradient>
+
+        {/* ========================================================= */}
+        {/* OUTER BLOOM                                               */}
+        {/* ========================================================= */}
+
+        <filter
+          id="outerBloom"
+          x="-150%"
+          y="-400%"
+          width="400%"
+          height="900%"
+        >
+          <feGaussianBlur stdDeviation="12"/>
+        </filter>
+
+        {/* ========================================================= */}
+        {/* MEDIUM BLOOM                                              */}
+        {/* ========================================================= */}
+
+        <filter
+          id="mediumBloom"
+          x="-100%"
+          y="-300%"
+          width="300%"
+          height="700%"
+        >
+          <feGaussianBlur stdDeviation="6"/>
+        </filter>
+
+        {/* ========================================================= */}
+        {/* SMALL BLOOM                                               */}
+        {/* ========================================================= */}
+
+        <filter
+          id="smallBloom"
+          x="-80%"
+          y="-250%"
+          width="260%"
+          height="600%"
+        >
+          <feGaussianBlur stdDeviation="2"/>
+        </filter>
+
+        {/* ========================================================= */}
+        {/* SPECULAR BLUR                                             */}
+        {/* ========================================================= */}
+
+        <filter
+          id="specularBlur"
+          x="-60%"
+          y="-200%"
+          width="220%"
+          height="500%"
+        >
+          <feGaussianBlur stdDeviation="0.8"/>
+        </filter>
+
+        {/* ========================================================= */}
+        {/* CAPSULE CLIP                                               */}
+        {/* ========================================================= */}
+
+        <clipPath id="shoulderClip">
+          <rect
+            x={SHOULDER_X}
+            y={SHOULDER_Y}
+            width={SHOULDER_WIDTH}
+            height={SHOULDER_HEIGHT}
+            rx={SHOULDER_RADIUS}
+          />
+        </clipPath>
+
+        {/* ========================================================= */}
+        {/* INNER MASK                                                 */}
+        {/* ========================================================= */}
+
+        <mask id="glassMask">
+          <rect
+            width={WIDTH}
+            height={HEIGHT}
+            fill="black"
+          />
+
+          <rect
+            x={SHOULDER_X}
+            y={SHOULDER_Y}
+            width={SHOULDER_WIDTH}
+            height={SHOULDER_HEIGHT}
+            rx={SHOULDER_RADIUS}
+            fill="white"
+          />
+        </mask>
+
       </defs>
 
-      {/* Left Cyan Bloom */}
+      {/* ========================================================= */}
+      {/* 1. DROP SHADOW                                             */}
+      {/* ========================================================= */}
+
+      <ellipse
+        cx={SHOULDER_X + SHOULDER_WIDTH / 2}
+        cy={SHOULDER_Y + SHOULDER_HEIGHT + 9}
+        rx={78}
+        ry={10}
+        fill="#000"
+        opacity={0.28}
+        filter="url(#outerBloom)"
+      />
+
+      {/* ========================================================= */}
+      {/* 2. OUTER CYAN BLOOM                                        */}
+      {/* ========================================================= */}
+
+      <rect
+        x={SHOULDER_X}
+        y={SHOULDER_Y}
+        width={SHOULDER_WIDTH}
+        height={SHOULDER_HEIGHT}
+        rx={SHOULDER_RADIUS}
+        fill="#82ffff"
+        opacity={0.22}
+        filter="url(#outerBloom)"
+      />
+
+      {/* ========================================================= */}
+      {/* 3. OUTER MAGENTA BLOOM                                     */}
+      {/* ========================================================= */}
+
+      <rect
+        x={SHOULDER_X}
+        y={SHOULDER_Y}
+        width={SHOULDER_WIDTH}
+        height={SHOULDER_HEIGHT}
+        rx={SHOULDER_RADIUS}
+        fill="#df72ff"
+        opacity={0.18}
+        filter="url(#outerBloom)"
+      />
+
+      {/* ========================================================= */}
+      {/* 4. MEDIUM BLOOM                                            */}
+      {/* ========================================================= */}
+
+      <rect
+        x={SHOULDER_X}
+        y={SHOULDER_Y}
+        width={SHOULDER_WIDTH}
+        height={SHOULDER_HEIGHT}
+        rx={SHOULDER_RADIUS}
+        fill="#ffffff"
+        opacity={0.16}
+        filter="url(#mediumBloom)"
+      />
+
+      {/* ========================================================= */}
+      {/* 5. GLASS BODY                                              */}
+      {/* ========================================================= */}
+
+      <rect
+        x={SHOULDER_X}
+        y={SHOULDER_Y}
+        width={SHOULDER_WIDTH}
+        height={SHOULDER_HEIGHT}
+        rx={SHOULDER_RADIUS}
+        fill="url(#glassBody)"
+      />
+
+      {/* ========================================================= */}
+      {/* 6. INNER GLASS VOLUME                                      */}
+      {/* ========================================================= */}
+
+      <rect
+        x={SHOULDER_X}
+        y={SHOULDER_Y}
+        width={SHOULDER_WIDTH}
+        height={SHOULDER_HEIGHT}
+        rx={SHOULDER_RADIUS}
+        fill="url(#glassVolume)"
+        opacity={0.95}
+      />
+
+      {/* ========================================================= */}
+      {/* 7. BRIGHT INNER CORE                                       */}
+      {/* ========================================================= */}
+
+      <rect
+        x={SHOULDER_X + 4}
+        y={SHOULDER_Y + SHOULDER_HEIGHT * 0.37}
+        width={SHOULDER_WIDTH - 8}
+        height={SHOULDER_HEIGHT * 0.28}
+        rx={2}
+        fill="url(#whiteCore)"
+        opacity={0.75}
+        filter="url(#smallBloom)"
+      />
+
+      {/* ========================================================= */}
+      {/* 8. SOFT CYAN INNER LIGHT                                   */}
+      {/* ========================================================= */}
+
+      <rect
+        x={SHOULDER_X + 8}
+        y={SHOULDER_Y + 2}
+        width={55}
+        height={8}
+        rx={4}
+        fill="#9bffff"
+        opacity={0.20}
+        filter="url(#smallBloom)"
+      />
+
+      {/* ========================================================= */}
+      {/* 9. SOFT MAGENTA INNER LIGHT                                */}
+      {/* ========================================================= */}
+
+      <rect
+        x={SHOULDER_X + SHOULDER_WIDTH - 63}
+        y={SHOULDER_Y + 2}
+        width={55}
+        height={8}
+        rx={4}
+        fill="#ff93ff"
+        opacity={0.20}
+        filter="url(#smallBloom)"
+      />
+
+      {/* ========================================================= */}
+      {/* 10. SUBTLE FRESNEL EDGE                                    */}
+      {/* ========================================================= */}
+
+      <rect
+        x={SHOULDER_X}
+        y={SHOULDER_Y}
+        width={SHOULDER_WIDTH}
+        height={1.1}
+        rx={1}
+        fill="#ffffff"
+        opacity={0.22}
+      />
+
+      <rect
+        x={SHOULDER_X}
+        y={SHOULDER_Y + SHOULDER_HEIGHT - 1.1}
+        width={SHOULDER_WIDTH}
+        height={1.1}
+        rx={1}
+        fill="#6e4ebf"
+        opacity={0.30}
+      />
+
+      {/* ========================================================= */}
+      {/* PART 3 - GLASS REFLECTIONS & SPECULAR LIGHT               */}
+      {/* ========================================================= */}
+
+      {/* Primary top reflection */}
       <path
-        d="
-          M176 92
-          C208 93 232 94 250 94
-          C268 94 292 93 324 92
-        "
-        fill="none"
-        stroke="#7FF8FF"
-        strokeWidth="24"
+        d={`
+          M ${SHOULDER_X + 8} ${SHOULDER_Y + 2.1}
+          C ${SHOULDER_X + 40} ${SHOULDER_Y + 0.4},
+            ${SHOULDER_X + 95} ${SHOULDER_Y + 0.4},
+            ${SHOULDER_X + 152} ${SHOULDER_Y + 2.2}
+        `}
+        stroke="white"
+        strokeWidth="1.35"
         strokeLinecap="round"
-        opacity=".16"
-        filter="url(#shoulderGlow)"
+        opacity=".82"
+        filter="url(#specularBlur)"
       />
 
-      {/* Right Purple Bloom */}
+      {/* Secondary reflection */}
       <path
-        d="
-          M176 92
-          C208 93 232 94 250 94
-          C268 94 292 93 324 92
-        "
-        fill="none"
-        stroke="#E06CFF"
-        strokeWidth="24"
+        d={`
+          M ${SHOULDER_X + 18} ${SHOULDER_Y + 3.4}
+          C ${SHOULDER_X + 55} ${SHOULDER_Y + 2.6},
+            ${SHOULDER_X + 95} ${SHOULDER_Y + 2.8},
+            ${SHOULDER_X + 140} ${SHOULDER_Y + 3.5}
+        `}
+        stroke="white"
+        strokeWidth=".8"
         strokeLinecap="round"
-        opacity=".16"
-        filter="url(#shoulderGlow)"
+        opacity=".42"
       />
 
-      {/* Glass Body */}
+      {/* Thin horizon reflection */}
       <path
-        d="
-          M176 88
-          C208 89 232 90 250 90
-          C268 90 292 89 324 88
-          L324 96
-          C292 97 268 98 250 98
-          C232 98 208 97 176 96
-          Z
-        "
-        fill="url(#shoulderGradient)"
+        d={`
+          M ${SHOULDER_X + 30} ${SHOULDER_Y + 5.2}
+          H ${SHOULDER_X + SHOULDER_WIDTH - 30}
+        `}
+        stroke="#ffffff"
+        strokeWidth=".5"
+        opacity=".22"
       />
 
-      {/* Top Glass Highlight */}
+      {/* Bottom purple reflection */}
       <path
-        d="
-          M181 90
-          C209 91 232 92 250 92
-          C268 92 291 91 319 90
-        "
-        fill="none"
-        stroke="#FFFFFF"
-        strokeWidth="1"
-        opacity=".35"
+        d={`
+          M ${SHOULDER_X + 14} ${SHOULDER_Y + SHOULDER_HEIGHT - 2}
+          C ${SHOULDER_X + 70} ${SHOULDER_Y + SHOULDER_HEIGHT + .2},
+            ${SHOULDER_X + 105} ${SHOULDER_Y + SHOULDER_HEIGHT + .2},
+            ${SHOULDER_X + 146} ${SHOULDER_Y + SHOULDER_HEIGHT - 2}
+        `}
+        stroke="#8057dd"
+        strokeWidth=".9"
+        opacity=".38"
       />
 
-      {/* Lower Shadow */}
-      <path
-        d="
-          M181 96
-          C209 97 232 98 250 98
-          C268 98 291 97 319 96
-        "
-        fill="none"
-        stroke="#5D468F"
-        strokeWidth="1"
-        opacity=".35"
+      {/* ========================================================= */}
+      {/* LEFT GLASS CAP                                             */}
+      {/* ========================================================= */}
+
+      <circle
+        cx={SHOULDER_X + SHOULDER_RADIUS}
+        cy={SHOULDER_Y + SHOULDER_RADIUS}
+        r={5.8}
+        fill="url(#leftCap)"
+        filter="url(#smallBloom)"
       />
+
+      <circle
+        cx={SHOULDER_X + SHOULDER_RADIUS - 1}
+        cy={SHOULDER_Y + SHOULDER_RADIUS - 1}
+        r={1.2}
+        fill="white"
+        opacity=".95"
+      />
+
+      {/* ========================================================= */}
+      {/* RIGHT GLASS CAP                                            */}
+      {/* ========================================================= */}
+
+      <circle
+        cx={SHOULDER_X + SHOULDER_WIDTH - SHOULDER_RADIUS}
+        cy={SHOULDER_Y + SHOULDER_RADIUS}
+        r={5.8}
+        fill="url(#rightCap)"
+        filter="url(#smallBloom)"
+      />
+
+      <circle
+        cx={SHOULDER_X + SHOULDER_WIDTH - SHOULDER_RADIUS - 1}
+        cy={SHOULDER_Y + SHOULDER_RADIUS - 1}
+        r={1.15}
+        fill="white"
+        opacity=".95"
+      />
+
+      {/* ========================================================= */}
+      {/* GLASS STREAKS                                              */}
+      {/* ========================================================= */}
+
+      <g clipPath="url(#shoulderClip)">
+
+        <rect
+          x={SHOULDER_X + 16}
+          y={SHOULDER_Y - 3}
+          width={1.3}
+          height={20}
+          rx={1}
+          fill="white"
+          opacity=".09"
+          transform={`rotate(-18 ${SHOULDER_X + 16} ${SHOULDER_Y})`}
+        />
+
+        <rect
+          x={SHOULDER_X + 58}
+          y={SHOULDER_Y - 3}
+          width={1}
+          height={20}
+          rx={1}
+          fill="white"
+          opacity=".06"
+          transform={`rotate(-14 ${SHOULDER_X + 58} ${SHOULDER_Y})`}
+        />
+
+        <rect
+          x={SHOULDER_X + 102}
+          y={SHOULDER_Y - 2}
+          width={1}
+          height={20}
+          rx={1}
+          fill="white"
+          opacity=".06"
+          transform={`rotate(-12 ${SHOULDER_X + 102} ${SHOULDER_Y})`}
+        />
+
+        <rect
+          x={SHOULDER_X + 142}
+          y={SHOULDER_Y - 2}
+          width={1.2}
+          height={20}
+          rx={1}
+          fill="white"
+          opacity=".08"
+          transform={`rotate(-18 ${SHOULDER_X + 142} ${SHOULDER_Y})`}
+        />
+
+      </g>
+
+      {/* ========================================================= */}
+      {/* MICRO GLINTS                                               */}
+      {/* ========================================================= */}
+
+      {[
+        [192, 95],
+        [228, 94],
+        [265, 97],
+        [303, 94]
+      ].map(([x, y], i) => (
+        <circle
+          key={i}
+          cx={x}
+          cy={y}
+          r=".75"
+          fill="white"
+          opacity=".65"
+        />
+      ))}
+
+      {/* Tiny sparkle */}
+      <path
+        d={`
+          M 248 90
+          L 248 92
+          M 247 91
+          L 249 91
+        `}
+        stroke="white"
+        strokeWidth=".5"
+        opacity=".55"
+      />
+
     </svg>
   );
 }
