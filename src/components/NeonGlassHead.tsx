@@ -286,16 +286,16 @@ export function NeonGlassHead({ className }: NeonGlassHeadProps) {
 
 
       <g id="shoulderBar" opacity=".96">
-        <path d="M176 300 C208 302 232 303 250 303 C268 303 292 302 324 300" fill="none" stroke="#6ff2ff" strokeWidth="15" strokeLinecap="butt" opacity=".075" filter="url(#bigBlur)" />
-        <path d="M176 300 C208 302 232 303 250 303 C268 303 292 302 324 300" fill="none" stroke="#d969ff" strokeWidth="14" strokeLinecap="butt" opacity=".07" filter="url(#bigBlur)" />
-        <path d="M176 300 C208 302 232 303 250 303 C268 303 292 302 324 300" fill="none" stroke="url(#shoulderShell)" strokeWidth="11.5" strokeLinecap="butt" opacity=".66" filter="url(#rimBloom)" />
-        <path d="M176 300 C208 302 232 303 250 303 C268 303 292 302 324 300" fill="none" stroke="url(#shoulderGlassFill)" strokeWidth="9.5" strokeLinecap="butt" opacity=".58" />
-        <path d="M176 300 C208 302 232 303 250 303 C268 303 292 302 324 300" fill="none" stroke="url(#shoulderCore)" strokeWidth="4.2" strokeLinecap="butt" opacity=".72" filter="url(#rimBlur)" />
-        <path d="M176 300 C208 302 232 303 250 303 C268 303 292 302 324 300" fill="none" stroke="#ffffff" strokeWidth="1.45" strokeLinecap="butt" opacity=".48" />
-        <path d="M181 297 C209 299 231 300 250 300 C269 300 291 299 319 297" fill="none" stroke="url(#shoulderGlint)" strokeWidth="1.8" strokeLinecap="butt" opacity=".42" filter="url(#rimBlur)" />
-        <path d="M184 306 C210 307 231 308 250 308 C269 308 290 307 316 306" fill="none" stroke="#c5b4ff" strokeWidth="1.45" strokeLinecap="butt" opacity=".16" filter="url(#rimBlur)" />
-        <path d="M176 300 C179 300.3 182 300.6 186 301" fill="none" stroke="#f6ffff" strokeWidth="2" strokeLinecap="butt" opacity=".34" filter="url(#rimBlur)" />
-        <path d="M314 301 C318 300.6 321 300.3 324 300" fill="none" stroke="#fff7ff" strokeWidth="2" strokeLinecap="butt" opacity=".3" filter="url(#rimBlur)" />
+        <path d="M176 300 C208 302 232 303 250 303 C268 303 292 302 324 300" fill="none" stroke="#6ff2ff" strokeWidth="15" strokeLinecap="round" opacity=".055" filter="url(#bigBlur)" />
+        <path d="M176 300 C208 302 232 303 250 303 C268 303 292 302 324 300" fill="none" stroke="#d969ff" strokeWidth="14" strokeLinecap="round" opacity=".05" filter="url(#bigBlur)" />
+        <path d="M176 300 C208 302 232 303 250 303 C268 303 292 302 324 300" fill="none" stroke="url(#shoulderShell)" strokeWidth="11.5" strokeLinecap="round" opacity=".72" filter="url(#rimBloom)" />
+        <path d="M176 300 C208 302 232 303 250 303 C268 303 292 302 324 300" fill="none" stroke="url(#shoulderGlassFill)" strokeWidth="9.5" strokeLinecap="round" opacity=".46" />
+        <path d="M176 300 C208 302 232 303 250 303 C268 303 292 302 324 300" fill="none" stroke="url(#shoulderCore)" strokeWidth="4.2" strokeLinecap="round" opacity=".80" filter="url(#rimBlur)" />
+        <path d="M176 300 C208 302 232 303 250 303 C268 303 292 302 324 300" fill="none" stroke="#ffffff" strokeWidth="1.1" strokeLinecap="round" opacity=".48" />
+        <path d="M181 297 C209 299 231 300 250 300 C269 300 291 299 319 297" fill="none" stroke="url(#shoulderGlint)" strokeWidth="1.8" strokeLinecap="round" opacity=".58" filter="url(#rimBlur)" />
+        <path d="M184 306 C210 307 231 308 250 308 C269 308 290 307 316 306" fill="none" stroke="#c5b4ff" strokeWidth="1.45" strokeLinecap="round" opacity=".08" filter="url(#rimBlur)" />
+        <path d="M176 300 C179 300.3 182 300.6 186 301" fill="none" stroke="#f6ffff" strokeWidth="2" strokeLinecap="round" opacity=".34" filter="url(#rimBlur)" />
+        <path d="M314 301 C318 300.6 321 300.3 324 300" fill="none" stroke="#fff7ff" strokeWidth="2" strokeLinecap="round" opacity=".3" filter="url(#rimBlur)" />
       </g>
       <g ref={headRef} className="head">
         <g ref={haloRef} className="haloLayer">
