@@ -555,6 +555,114 @@ export default function ShoulderStudy() {
         opacity=".55"
       />
 
+      {/* ========================================================= */}
+      {/* PHASE 4 - OPTICAL DEPTH                                   */}
+      {/* ========================================================= */}
+
+      {/* 1. Curved inner caustic */}
+      <ellipse
+        cx={SHOULDER_X + SHOULDER_WIDTH / 2}
+        cy={SHOULDER_Y + SHOULDER_HEIGHT / 2}
+        rx={66}
+        ry={2.2}
+        fill="white"
+        opacity={0.10}
+        filter="url(#smallBloom)"
+      />
+
+      {/* 2. Bright top ribbon */}
+      <path
+        d={`
+          M ${SHOULDER_X+14} ${SHOULDER_Y+2}
+          C ${SHOULDER_X+70} ${SHOULDER_Y-0.5},
+            ${SHOULDER_X+120} ${SHOULDER_Y-0.5},
+            ${SHOULDER_X+146} ${SHOULDER_Y+2}
+        `}
+        stroke="white"
+        strokeWidth="1.1"
+        opacity=".85"
+        filter="url(#specularBlur)"
+        strokeLinecap="round"
+      />
+
+      {/* 3. Second ribbon */}
+      <path
+        d={`
+          M ${SHOULDER_X+28} ${SHOULDER_Y+4}
+          C ${SHOULDER_X+85} ${SHOULDER_Y+3},
+            ${SHOULDER_X+115} ${SHOULDER_Y+3},
+            ${SHOULDER_X+132} ${SHOULDER_Y+4}
+        `}
+        stroke="white"
+        strokeWidth=".6"
+        opacity=".32"
+        strokeLinecap="round"
+      />
+
+      {/* 4. Cyan rim */}
+      <rect
+        x={SHOULDER_X}
+        y={SHOULDER_Y}
+        width={5}
+        height={SHOULDER_HEIGHT}
+        rx={5}
+        fill="#9fffff"
+        opacity=".18"
+      />
+
+      {/* 5. Purple rim */}
+      <rect
+        x={SHOULDER_X+SHOULDER_WIDTH-5}
+        y={SHOULDER_Y}
+        width={5}
+        height={SHOULDER_HEIGHT}
+        rx={5}
+        fill="#ef9dff"
+        opacity=".18"
+      />
+
+      {/* 6. Glass fog */}
+      <rect
+        x={SHOULDER_X+5}
+        y={SHOULDER_Y+1}
+        width={SHOULDER_WIDTH-10}
+        height={SHOULDER_HEIGHT-2}
+        rx={6}
+        fill="white"
+        opacity=".035"
+      />
+
+      {/* 7. Stronger center energy */}
+      <rect
+        x={SHOULDER_X+18}
+        y={SHOULDER_Y+5}
+        width={SHOULDER_WIDTH-36}
+        height={2}
+        rx={1}
+        fill="white"
+        opacity=".95"
+        filter="url(#smallBloom)"
+      />
+
+      {/* 8. End-cap highlights */}
+      <ellipse
+        cx={SHOULDER_X+6}
+        cy={SHOULDER_Y+4}
+        rx={2}
+        ry={1}
+        fill="white"
+        opacity=".95"
+      />
+
+      <ellipse
+        cx={SHOULDER_X+SHOULDER_WIDTH-6}
+        cy={SHOULDER_Y+4}
+        rx={2}
+        ry={1}
+        fill="white"
+        opacity=".95"
+      />
+
     </svg>
   );
 }
