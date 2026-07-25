@@ -1,8 +1,12 @@
-﻿import { Sparkles } from 'lucide-react';
+import { useState } from 'react';
+import { Sparkles } from 'lucide-react';
 import { NeonGlassHead } from './components/NeonGlassHead';
+import ShoulderStudy from './components/ShoulderStudy';
 import { cn } from './lib/utils';
 
 export function App() {
+  const [activeTab, setActiveTab] = useState<'head' | 'shoulder'>('head');
+
   return (
     <main
       className={cn(
@@ -14,7 +18,44 @@ export function App() {
         <Sparkles className="size-4" strokeWidth={1.5} />
         <span>Glass head prototype</span>
       </div>
-      <NeonGlassHead className="h-[420px] w-[420px]" />
+
+      <div className="absolute top-4 right-4 flex gap-2 rounded-lg bg-white/5 p-1 backdrop-blur-md border border-white/10">
+        <button
+          onClick={() => setActiveTab('head')}
+          className={cn(
+            'px-4 py-2 text-sm font-medium transition-all rounded-md cursor-pointer',
+            activeTab === 'head'
+              ? 'bg-purple-600 text-white shadow-lg shadow-purple-500/30'
+              : 'text-white/60 hover:text-white hover:bg-white/5'
+          )}
+        >
+          Neon Glass Head
+        </button>
+        <button
+          onClick={() => setActiveTab('shoulder')}
+          className={cn(
+            'px-4 py-2 text-sm font-medium transition-all rounded-md cursor-pointer',
+            activeTab === 'shoulder'
+              ? 'bg-purple-600 text-white shadow-lg shadow-purple-500/30'
+              : 'text-white/60 hover:text-white hover:bg-white/5'
+          )}
+        >
+          Shoulder Study
+        </button>
+      </div>
+
+      <div className="flex items-center justify-center">
+        {activeTab === 'head' ? (
+          <NeonGlassHead className="h-[420px] w-[420px]" />
+        ) : (
+          <div className="flex flex-col items-center gap-4">
+            <h2 className="text-sm font-mono text-white/50 tracking-wider">SHOULDER STUDY GEOMETRY</h2>
+            <div className="p-6 rounded-2xl bg-[#0d0b18] border border-white/10 shadow-2xl">
+              <ShoulderStudy />
+            </div>
+          </div>
+        )}
+      </div>
     </main>
   );
 }
