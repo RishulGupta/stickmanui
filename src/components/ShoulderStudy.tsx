@@ -18,9 +18,24 @@ export default function ShoulderStudy() {
             <feMergeNode in="SourceGraphic" />
           </feMerge>
         </filter>
+
+        <linearGradient
+          id="shoulderGradient"
+          x1="176"
+          y1="94"
+          x2="324"
+          y2="94"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset="0%" stopColor="#A7FFFF" />
+          <stop offset="18%" stopColor="#F8FFFF" />
+          <stop offset="50%" stopColor="#FFFFFF" />
+          <stop offset="82%" stopColor="#FFE9FF" />
+          <stop offset="100%" stopColor="#E76BFF" />
+        </linearGradient>
       </defs>
 
-      {/* Glow Layer */}
+      {/* Left Cyan Bloom */}
       <path
         d="
           M176 92
@@ -28,14 +43,14 @@ export default function ShoulderStudy() {
           C268 94 292 93 324 92
         "
         fill="none"
-        stroke="#ffffff"
+        stroke="#7FF8FF"
         strokeWidth="18"
         strokeLinecap="round"
-        opacity="0.18"
+        opacity=".16"
         filter="url(#shoulderGlow)"
       />
 
-      {/* Geometry */}
+      {/* Right Purple Bloom */}
       <path
         d="
           M176 92
@@ -43,7 +58,22 @@ export default function ShoulderStudy() {
           C268 94 292 93 324 92
         "
         fill="none"
-        stroke="#ffffff"
+        stroke="#E06CFF"
+        strokeWidth="18"
+        strokeLinecap="round"
+        opacity=".16"
+        filter="url(#shoulderGlow)"
+      />
+
+      {/* Main Tube */}
+      <path
+        d="
+          M176 92
+          C208 93 232 94 250 94
+          C268 94 292 93 324 92
+        "
+        fill="none"
+        stroke="url(#shoulderGradient)"
         strokeWidth="8"
         strokeLinecap="round"
       />
