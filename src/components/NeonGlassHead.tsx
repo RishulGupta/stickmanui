@@ -290,8 +290,9 @@ export function NeonGlassHead({ className }: NeonGlassHeadProps) {
         <path d="M176 300 C208 302 232 303 250 303 C268 303 292 302 324 300" fill="none" stroke="#6ff2ff" strokeWidth="15" strokeLinecap="round" opacity=".055" filter="url(#bigBlur)" />
         <path d="M176 300 C208 302 232 303 250 303 C268 303 292 302 324 300" fill="none" stroke="#d969ff" strokeWidth="14" strokeLinecap="round" opacity=".05" filter="url(#bigBlur)" />
         <path d="M176 300 C208 302 232 303 250 303 C268 303 292 302 324 300" fill="none" stroke="url(#shoulderShell)" strokeWidth="11.5" strokeLinecap="round" opacity=".82" filter="url(#rimBloom)" />
-        <path d="M176 300 C208 302 232 303 250 303 C268 303 292 302 324 300" fill="none" stroke="url(#shoulderGlassFill)" strokeWidth="9.5" strokeLinecap="round" opacity=".32" />
-        <path d="M176 300 C208 302 232 303 250 303 C268 303 292 302 324 300" fill="none" stroke="url(#shoulderCore)" strokeWidth="4.2" strokeLinecap="round" opacity=".80" filter="url(#rimBlur)" />
+        <path d="M176 300 C208 302 232 303 250 303 C268 303 292 302 324 300" fill="none" stroke="url(#shoulderGlassFill)" strokeWidth="9.5" strokeLinecap="round" opacity=".22" />
+        <path d="M176 299 C208 301 232 302 250 302 C268 302 292 301 324 299" fill="none" stroke="#ffffff" strokeWidth="5.5" strokeLinecap="round" opacity=".05" />
+        <path d="M176 300 C208 302 232 303 250 303 C268 303 292 302 324 300" fill="none" stroke="url(#shoulderCore)" strokeWidth="3.2" strokeLinecap="round" opacity=".95" filter="url(#rimBlur)" />
         <path d="M176 300 C208 302 232 303 250 303 C268 303 292 302 324 300" fill="none" stroke="#ffffff" strokeWidth=".8" strokeLinecap="round" opacity=".48" />
         <path d="M181 297 C209 299 231 300 250 300 C269 300 291 299 319 297" fill="none" stroke="url(#shoulderGlint)" strokeWidth="1.8" strokeLinecap="round" opacity=".58" filter="url(#rimBlur)" />
         <path d="M184 298 C210 299 232 300 250 300 C268 300 290 299 316 298" fill="none" stroke="#ffffff" strokeWidth=".6" strokeLinecap="round" opacity=".18" filter="url(#rimBlur)" />
