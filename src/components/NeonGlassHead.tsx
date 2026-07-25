@@ -188,12 +188,12 @@ export function NeonGlassHead({ className }: NeonGlassHeadProps) {
           <stop offset="62%" stopColor="#ffffff" stopOpacity=".22" />
           <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
         </linearGradient>
-        <linearGradient id="shoulderCore" x1="14%" y1="48%" x2="86%" y2="52%">
-          <stop offset="0%" stopColor="#9df5ff" stopOpacity=".54" />
-          <stop offset="20%" stopColor="#e8ffff" stopOpacity=".78" />
-          <stop offset="50%" stopColor="#ffffff" stopOpacity=".66" />
-          <stop offset="79%" stopColor="#f3d4ff" stopOpacity=".7" />
-          <stop offset="100%" stopColor="#e27cff" stopOpacity=".5" />
+        <linearGradient id="shoulderCore" x1="0%" y1="50%" x2="100%" y2="50%">
+          <stop offset="0%" stopColor="#97f8ff"/>
+          <stop offset="14%" stopColor="#ecffff"/>
+          <stop offset="50%" stopColor="#ffffff"/>
+          <stop offset="82%" stopColor="#ffe7ff"/>
+          <stop offset="100%" stopColor="#d76fff"/>
         </linearGradient>
 
         <linearGradient id="shoulderShell" x1="12%" y1="8%" x2="88%" y2="92%">
@@ -205,10 +205,11 @@ export function NeonGlassHead({ className }: NeonGlassHeadProps) {
         </linearGradient>
 
         <linearGradient id="shoulderGlassFill" x1="50%" y1="0%" x2="50%" y2="100%">
-          <stop offset="0%" stopColor="#ffffff" stopOpacity=".13" />
-          <stop offset="32%" stopColor="#8df7ff" stopOpacity=".075" />
-          <stop offset="64%" stopColor="#5e48ac" stopOpacity=".055" />
-          <stop offset="100%" stopColor="#d969ff" stopOpacity=".08" />
+          <stop offset="0%" stopColor="#ffffff" stopOpacity=".18" />
+          <stop offset="18%" stopColor="#dffcff" stopOpacity=".12" />
+          <stop offset="42%" stopColor="#9eefff" stopOpacity=".06" />
+          <stop offset="68%" stopColor="#5b49a8" stopOpacity=".03" />
+          <stop offset="100%" stopColor="#2a1d4f" stopOpacity=".11" />
         </linearGradient>
 
         <linearGradient id="shoulderGlint" x1="13%" y1="0%" x2="87%" y2="0%">
@@ -288,14 +289,15 @@ export function NeonGlassHead({ className }: NeonGlassHeadProps) {
       <g id="shoulderBar" opacity=".96">
         <path d="M176 300 C208 302 232 303 250 303 C268 303 292 302 324 300" fill="none" stroke="#6ff2ff" strokeWidth="15" strokeLinecap="round" opacity=".055" filter="url(#bigBlur)" />
         <path d="M176 300 C208 302 232 303 250 303 C268 303 292 302 324 300" fill="none" stroke="#d969ff" strokeWidth="14" strokeLinecap="round" opacity=".05" filter="url(#bigBlur)" />
-        <path d="M176 300 C208 302 232 303 250 303 C268 303 292 302 324 300" fill="none" stroke="url(#shoulderShell)" strokeWidth="11.5" strokeLinecap="round" opacity=".72" filter="url(#rimBloom)" />
-        <path d="M176 300 C208 302 232 303 250 303 C268 303 292 302 324 300" fill="none" stroke="url(#shoulderGlassFill)" strokeWidth="9.5" strokeLinecap="round" opacity=".46" />
+        <path d="M176 300 C208 302 232 303 250 303 C268 303 292 302 324 300" fill="none" stroke="url(#shoulderShell)" strokeWidth="11.5" strokeLinecap="round" opacity=".82" filter="url(#rimBloom)" />
+        <path d="M176 300 C208 302 232 303 250 303 C268 303 292 302 324 300" fill="none" stroke="url(#shoulderGlassFill)" strokeWidth="9.5" strokeLinecap="round" opacity=".32" />
         <path d="M176 300 C208 302 232 303 250 303 C268 303 292 302 324 300" fill="none" stroke="url(#shoulderCore)" strokeWidth="4.2" strokeLinecap="round" opacity=".80" filter="url(#rimBlur)" />
-        <path d="M176 300 C208 302 232 303 250 303 C268 303 292 302 324 300" fill="none" stroke="#ffffff" strokeWidth="1.1" strokeLinecap="round" opacity=".48" />
+        <path d="M176 300 C208 302 232 303 250 303 C268 303 292 302 324 300" fill="none" stroke="#ffffff" strokeWidth=".8" strokeLinecap="round" opacity=".48" />
         <path d="M181 297 C209 299 231 300 250 300 C269 300 291 299 319 297" fill="none" stroke="url(#shoulderGlint)" strokeWidth="1.8" strokeLinecap="round" opacity=".58" filter="url(#rimBlur)" />
+        <path d="M184 298 C210 299 232 300 250 300 C268 300 290 299 316 298" fill="none" stroke="#ffffff" strokeWidth=".6" strokeLinecap="round" opacity=".18" filter="url(#rimBlur)" />
         <path d="M184 306 C210 307 231 308 250 308 C269 308 290 307 316 306" fill="none" stroke="#c5b4ff" strokeWidth="1.45" strokeLinecap="round" opacity=".08" filter="url(#rimBlur)" />
-        <path d="M176 300 C179 300.3 182 300.6 186 301" fill="none" stroke="#f6ffff" strokeWidth="2" strokeLinecap="round" opacity=".34" filter="url(#rimBlur)" />
-        <path d="M314 301 C318 300.6 321 300.3 324 300" fill="none" stroke="#fff7ff" strokeWidth="2" strokeLinecap="round" opacity=".3" filter="url(#rimBlur)" />
+        <path d="M176 300 C179 300.3 182 300.6 186 301" fill="none" stroke="#f6ffff" strokeWidth="2" strokeLinecap="round" opacity=".46" filter="url(#rimBlur)" />
+        <path d="M314 301 C318 300.6 321 300.3 324 300" fill="none" stroke="#fff7ff" strokeWidth="2" strokeLinecap="round" opacity=".42" filter="url(#rimBlur)" />
       </g>
       <g ref={headRef} className="head">
         <g ref={haloRef} className="haloLayer">
