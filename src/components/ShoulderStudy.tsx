@@ -6,7 +6,7 @@ const HEIGHT = 180;
 const SHOULDER_X = 170;
 const SHOULDER_Y = 90;
 const SHOULDER_WIDTH = 160;
-const SHOULDER_HEIGHT = 12;
+const SHOULDER_HEIGHT = 14;
 const SHOULDER_RADIUS = SHOULDER_HEIGHT / 2;
 
 export default function ShoulderStudy() {
@@ -243,7 +243,7 @@ export default function ShoulderStudy() {
         height={SHOULDER_HEIGHT}
         rx={SHOULDER_RADIUS}
         fill="#82ffff"
-        opacity={0.22}
+        opacity={0.16}
         filter="url(#outerBloom)"
       />
 
@@ -258,7 +258,7 @@ export default function ShoulderStudy() {
         height={SHOULDER_HEIGHT}
         rx={SHOULDER_RADIUS}
         fill="#df72ff"
-        opacity={0.18}
+        opacity={0.13}
         filter="url(#outerBloom)"
       />
 
@@ -273,8 +273,29 @@ export default function ShoulderStudy() {
         height={SHOULDER_HEIGHT}
         rx={SHOULDER_RADIUS}
         fill="#ffffff"
-        opacity={0.16}
+        opacity={0.11}
         filter="url(#mediumBloom)"
+      />
+
+      {/* Localized End Glows */}
+      <ellipse
+        cx={SHOULDER_X+10}
+        cy={SHOULDER_Y+6}
+        rx={18}
+        ry={9}
+        fill="#8dffff"
+        opacity={0.12}
+        filter="url(#outerBloom)"
+      />
+
+      <ellipse
+        cx={SHOULDER_X+SHOULDER_WIDTH-10}
+        cy={SHOULDER_Y+6}
+        rx={18}
+        ry={9}
+        fill="#e27cff"
+        opacity={0.12}
+        filter="url(#outerBloom)"
       />
 
       {/* ========================================================= */}
@@ -304,18 +325,29 @@ export default function ShoulderStudy() {
         opacity={0.95}
       />
 
+      {/* Subtle lower shadow */}
+      <rect
+        x={SHOULDER_X}
+        y={SHOULDER_Y+7}
+        width={SHOULDER_WIDTH}
+        height={7}
+        fill="#23133b"
+        opacity=".10"
+        clipPath="url(#shoulderClip)"
+      />
+
       {/* ========================================================= */}
       {/* 7. BRIGHT INNER CORE                                       */}
       {/* ========================================================= */}
 
       <rect
-        x={SHOULDER_X + 4}
-        y={SHOULDER_Y + SHOULDER_HEIGHT * 0.37}
-        width={SHOULDER_WIDTH - 8}
-        height={SHOULDER_HEIGHT * 0.28}
-        rx={2}
-        fill="url(#whiteCore)"
-        opacity={0.75}
+        x={SHOULDER_X+24}
+        y={SHOULDER_Y+5}
+        width={SHOULDER_WIDTH-48}
+        height={1.8}
+        rx={1}
+        fill="white"
+        opacity=".95"
         filter="url(#smallBloom)"
       />
 
@@ -646,19 +678,19 @@ export default function ShoulderStudy() {
 
       {/* 8. End-cap highlights */}
       <ellipse
-        cx={SHOULDER_X+6}
-        cy={SHOULDER_Y+4}
-        rx={2}
-        ry={1}
+        cx={SHOULDER_X+5}
+        cy={SHOULDER_Y+3}
+        rx={1.3}
+        ry={0.8}
         fill="white"
         opacity=".95"
       />
 
       <ellipse
-        cx={SHOULDER_X+SHOULDER_WIDTH-6}
-        cy={SHOULDER_Y+4}
-        rx={2}
-        ry={1}
+        cx={SHOULDER_X+SHOULDER_WIDTH-5}
+        cy={SHOULDER_Y+3}
+        rx={1.3}
+        ry={0.8}
         fill="white"
         opacity=".95"
       />
